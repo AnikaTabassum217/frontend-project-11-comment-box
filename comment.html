@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .comment{
+            border: 2px solid blue;
+            background-color: aqua;
+            margin: 10px;
+            padding: 10px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <section>
+        <h1 style="text-align: center;">Comment Box!!!</h1>
+    <div id="comment-container">
+        <p class="comment">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+        <p class="comment">Nulla eveniet architecto repellat labore animi! Obcaecati neque deserunt tempore.</p>
+        <p class="comment">Repudiandae, tenetur perferendis vel dicta totam eos laudantium eaque officia minima temporibus?</p>
+    </div>
+
+    <textarea name="" id="text-area" style="margin: 10px;">
+    </textarea> <br>
+
+    <button id="btn-post-comment" style="margin: 10px;">Post Comment</button>
+
+    </section>
+     <script>
+         document.getElementById('btn-post-comment')
+         .addEventListener('click',function(){
+            // console.log('Post Button Clicked')
+
+            // step-2 get the text written in the comment text area
+            const textArea = document.getElementById('text-area')
+            // console.log(textArea)
+            const textComment= textArea.value;
+            // console.log(textComment)
+
+            // step-3: Get the parent node where publish the comment
+            const commentContainer = document.getElementById('comment-container')
+            console.log(commentContainer)
+
+            // step-4: Create a comment P and set the innerText
+            const commentElement = document.createElement('p');
+            commentElement.classList.add('comment') //for styel
+            commentElement.innerText=textComment;
+            console.log(commentElement)
+
+            // step-5:append the new p tag to the parent Node
+            commentContainer.appendChild(commentElement)
+         })
+     </script>
+</body>
+
+</html>
